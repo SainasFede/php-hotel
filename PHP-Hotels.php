@@ -57,14 +57,43 @@ var_dump($hotels);
   
 
   <div class="container">
+  <div class="row pb-4">
+  <form action="./index.php" method="GET" class="d-flex justify-content-center align-items-center w-100">
+        <div class="form-check mx-4">
+            <input class="form-check-input" type="radio" name="parking" id="withparking" value="true">
+            <label class="form-check-label" for="withparking">
+                CON PARCHEGGIO
+            </label>
+        </div>
+
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="parking" id="noparking" value="false">
+            <label class="form-check-label" for="noparking">
+                SENZA PARCHEGGIO
+            </label>
+        </div>
+
+        <select class="form-select w-25 mx-3" aria-label="Default select example" name="vote">
+            <option selected>VOTO</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+
+        <button class="btn btn-primary" type="submit">CERCA</button>
+    </form>
+  </div>
+
+
     <div class="row">
       <table class="table">
       <thead>
         <tr>
-          <?php foreach ($hotels as $hotel) :?>
+          <?php $hotel = $hotels[0]; ?>
           <?php foreach ($hotel as $key => $value) :?>
           <th scope="col"><?php echo $key ?></th>
-          <?php endforeach; ?>
           <?php endforeach; ?>
         </tr>
       </thead>
